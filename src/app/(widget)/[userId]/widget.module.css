@@ -1,0 +1,59 @@
+.song {
+  font-size: 3.5vw;
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.artist {
+  font-size: 2.5vw;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.text-h {
+  padding: 10% 5%;
+}
+
+.progress-h {
+  margin-top: 4%;
+  margin-bottom: 1%;
+}
+
+.progress-v {
+  margin-top: 3%;
+}
+
+.image-h {
+  width: 25%;
+}
+
+.image-v {
+  width: 66.666667%;
+}
+
+@media screen and (max-height: 500px) and (min-width: 600px) {
+  .image-h {
+    max-width: 250px;
+  }
+}
+
+@media screen and (max-height: 500px) and (min-width: 1300px) {
+  .song {
+    font-size: 48px;
+  }
+
+  .artist {
+    font-size: 32px;
+  }
+
+  .progress-h {
+    margin-top: 2%;
+  }
+}
+
+@media screen and (max-height: 450px) and (min-width: 1000px) {
+  .text-h {
+    padding: 30px 5%;
+  }
+}
