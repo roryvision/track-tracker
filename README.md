@@ -1,7 +1,7 @@
 # Track Tracker
 A simple, customizable widget that displays your currently playing Spotify song. Your unique page can be embedded on your blog, Notion, stream, etc.
 
-~~Visit [tracktracker.vercel.app](https://tracktracker.vercel.app) to get started!~~ (Currently awaiting a quota extension from Spotify)
+Visit [tracktracker.vercel.app](https://tracktracker.vercel.app) to get started!
 
 ## Usage
 1. Read the [privacy policy](https://tracktracker.vercel.app/privacy).
