@@ -5,7 +5,6 @@ const displaySchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  orientation: String,
   color_bg: String,
   color_text: String,
   progress: Boolean,

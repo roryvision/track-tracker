@@ -32,6 +32,14 @@ const Page: FC<PageProps> = ({ params }) => {
   const [showProgress, setShowProgress] = useState<boolean>(true);
   const [showRounded, setShowRounded] = useState<boolean>(false);
 
+  const updateOrientation = () => {
+    if (window.innerWidth / window.innerHeight > 1) {
+      setOrientation('horizontal');
+    } else {
+      setOrientation('vertical');
+    }
+  }
+
   useEffect(() => {
     const abortController = new AbortController();
 
@@ -44,7 +52,6 @@ const Page: FC<PageProps> = ({ params }) => {
         }
 
         const json = await res.json();
-        setOrientation(json.orientation);
         setColorBg(json.color_bg);
         setColorText(json.color_text);
         setShowProgress(json.progress);
@@ -56,6 +63,8 @@ const Page: FC<PageProps> = ({ params }) => {
     }
 
     fetchUser();
+
+    window.addEventListener('resize', updateOrientation);
 
     return () => {
       abortController.abort();

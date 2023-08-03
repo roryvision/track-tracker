@@ -27,7 +27,6 @@ export async function POST(req: Request) {
         { 'user': user },
         { 
           'user': user,
-          'orientation': body.orientation,
           'color_bg': body.colorBg,
           'color_text': body.colorText,
           'progress': body.showProgress,

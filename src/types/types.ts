@@ -10,7 +10,6 @@ interface TrackData {
 }
 
 interface DisplayInfo {
-  orientation: string
   color_bg: string
   color_text: string
   progress: true

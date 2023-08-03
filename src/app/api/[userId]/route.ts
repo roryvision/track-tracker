@@ -22,7 +22,6 @@ export async function GET(req: Request, { params }: routeProps) {
 
   if(data.length <= 0) {
     const display : DisplayInfo = {
-      orientation: 'horizontal',
       color_bg: '#191414',
       color_text: '#ffffff',
       progress: true,
@@ -33,7 +32,6 @@ export async function GET(req: Request, { params }: routeProps) {
   }
 
   const display: DisplayInfo = {
-    orientation: data[0].orientation,
     color_bg: data[0].color_bg,
     color_text: data[0].color_text,
     progress: data[0].progress,

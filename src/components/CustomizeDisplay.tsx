@@ -27,7 +27,7 @@ const CustomizeDisplay: FC<CustomizeDisplayProps> = ({ user }) => {
     if (buttonPressed === 'custom') {
       await fetch('/api/db/displays', {
         method: 'POST',
-        body: JSON.stringify({ orientation, colorBg, colorText, showProgress, showRounded }),
+        body: JSON.stringify({ colorBg, colorText, showProgress, showRounded }),
       })
     } else if (buttonPressed === 'default') {
       await fetch('/api/db/displays', {
@@ -121,6 +121,8 @@ const CustomizeDisplay: FC<CustomizeDisplayProps> = ({ user }) => {
                 Vertical
               </span>
             </label>
+
+            <p className='text-opacity-50 text-xs mt-0.5'>*This is for previewing purposes — your widget will automatically adjust</p>
           </div>
 
           <br />
