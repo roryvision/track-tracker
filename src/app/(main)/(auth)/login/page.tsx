@@ -7,7 +7,7 @@ import Link from 'next/link'
 const Page = () => {
   async function loginWithSpotify() {
     try {
-      await signIn('spotify')
+      await signIn('spotify', { callbackUrl: '/edit' })
     } catch (error) {
       return new Response('Error', { status: 400 })
     }

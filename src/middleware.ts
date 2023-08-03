@@ -1,6 +1,5 @@
 import { getToken } from "next-auth/jwt";
 import { withAuth } from "next-auth/middleware";
-import { NextURL } from "next/dist/server/web/next-url";
 import { NextRequest, NextResponse } from "next/server";
 
 export default withAuth(
@@ -12,24 +11,12 @@ export default withAuth(
       req,
       raw: true,
       secret: process.env.NEXTAUTH_SECRET,
-    });
-    const isLoginPage = pathname.startsWith("/login");
+    })
 
     const sensitiveRoutes = ["/edit"];
     const isAccessingSensitiveRoute = sensitiveRoutes.some((route) =>
       pathname.startsWith(route)
-    );
-
-    if (isLoginPage) {
-      if (isAuth) {
-        const url: NextURL = req.nextUrl.clone();
-        url.pathname = `/edit`;
-
-        return NextResponse.redirect(url);
-      }
-
-      return NextResponse.next();
-    }
+    )
 
     if (!isAuth && isAccessingSensitiveRoute) {
       return NextResponse.redirect(new URL("/login", req.url));
@@ -48,8 +35,8 @@ export default withAuth(
       },
     },
   }
-);
+)
 
 export const config = {
   matcher: ["/login", "/edit", "/api"],
-};
+}
