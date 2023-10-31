@@ -58,13 +58,13 @@ export async function GET(req: Request, { params }: routeProps) {
   }
 
   const currentlyPlaying = await result();
-  if (currentlyPlaying === 204 || !currentlyPlaying.is_playing) {
+  if (currentlyPlaying === 204 || !currentlyPlaying.is_playing || currentlyPlaying.item.is_local) {
     // NextJS has a bug where we cannot handle 204 so use 404 for now
     return new Response("Not playing", { status: 404 });
   }
 
-  if(currentlyPlaying.is_playing) {
-    if(currentlyPlaying.currently_playing_type === 'track') {
+  if (currentlyPlaying.is_playing) {
+    if (currentlyPlaying.currently_playing_type === 'track' && !currentlyPlaying.item.is_local) {
       const track: TrackData = {
         album_img: currentlyPlaying.item.album.images[0].url,
         album_link: currentlyPlaying.item.album.external_urls.spotify,
