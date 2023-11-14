@@ -58,7 +58,7 @@ export async function GET(req: Request, { params }: routeProps) {
   }
 
   const currentlyPlaying = await result();
-  if (currentlyPlaying === 204 || !currentlyPlaying.is_playing || currentlyPlaying.item.is_local) {
+  if (currentlyPlaying === 204 || !currentlyPlaying.is_playing) {
     // NextJS has a bug where we cannot handle 204 so use 404 for now
     return new Response("Not playing", { status: 404 });
   }
